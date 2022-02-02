@@ -681,8 +681,8 @@ a {
 }
 .cid-ugO3Wku0Ne {
   padding-top: 0rem;
-  padding-bottom: 1rem;
-  background-color: #e43f3f;
+  padding-bottom: 0rem;
+  background-color: #ffffff;
 }
 .cid-ugO3Wku0Ne .carousel {
   height: 29rem;
@@ -793,7 +793,7 @@ a {
   z-index: 10;
   padding-top: 0vh;
   padding-bottom: 0vh;
-  background-color: #e43f3f;
+  background-image: url("../../../assets/images/background5.jpg");
 }
 .cid-PxfawMwRrF .mwContainer {
   position: relative;
@@ -802,9 +802,6 @@ a {
   width: 150%;
   transform: rotate(0deg);
   background: transparent;
-  border-top: 1px #232323;
-  border-bottom: 1px #232323;
-  border-style: solid;
 }
 .cid-PxfawMwRrF .mwContainer .mwMarquee {
   margin: 0;
