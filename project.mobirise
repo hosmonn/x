@@ -987,6 +987,257 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".box .icon li a, .box .icon li a:hover": {
+              "background-color": "@hovericon3"
+            },
+            ".box:before": {
+              "background-color": "@hovericon3-2",
+              "content": "\"\"",
+              "height": "100%",
+              "width": "100%",
+              "opacity": "0",
+              "position": "absolute",
+              "left": "0",
+              "top": "0",
+              "transition": "all 0.4s linear"
+            },
+            ".box": {
+              "font-family": "'Kanit', sans-serif",
+              "text-align": "center",
+              "border": "10px solid #fff",
+              "box-shadow": "1px 1px 2px #e6e6e6",
+              "overflow": "hidden",
+              "position": "relative"
+            },
+            ".box:hover": {
+              "box-shadow": "13px 13px 15px rgba(0, 0, 0, 0.3)"
+            },
+            ".box:hover:before": {
+              "opacity": "1"
+            },
+            ".box img": {
+              "width": "100%",
+              "height": "auto",
+              "transition": "all 0.4s linear"
+            },
+            ".box:hover img": {
+              "opacity": "0",
+              "transform": "scale(3)"
+            },
+            ".box .box-content": {
+              "color": "#fff",
+              "width": "100%",
+              "transform": "translateY(-50%) scale(0)",
+              "position": "absolute",
+              "top": "50%",
+              "left": "0",
+              "transition": "all 0.4s linear"
+            },
+            ".box:hover .box-content": {
+              "transform": "translateY(-50%) scale(1)"
+            },
+            ".box .title": {
+              "font-size": "25px",
+              "font-weight": "600",
+              "letter-spacing": "1px",
+              "text-transform": "uppercase",
+              "margin": "0"
+            },
+            ".box .post": {
+              "font-size": "16px",
+              "text-transform": "capitalize"
+            },
+            ".box .icon": {
+              "padding": "0",
+              "margin": "0",
+              "list-style": "none",
+              "position": "absolute",
+              "right": "8px",
+              "bottom": "10px"
+            },
+            ".box .icon li": {
+              "display": "inline-block",
+              "margin": "0 1px",
+              "opacity": "0",
+              "transform": "scale(1.3)",
+              "transition": "all 0.3s ease 0.4s"
+            },
+            ".box:hover .icon li": {
+              "opacity": "1",
+              "transform": "scale(1)"
+            },
+            ".box:hover .icon li:nth-child(2)": {
+              "transition": "all 0.3s ease 0.2s"
+            },
+            ".box .icon li a": {
+              "color": "#11998e",
+              "font-size": "16px",
+              "line-height": "33px",
+              "height": "33px",
+              "width": "33px",
+              "border-radius": "50%",
+              "display": "block",
+              "transition": "all 0.5s ease"
+            },
+            ".box .icon li a:hover": {
+              "color": "#fff",
+              "box-shadow": "0 0 5px #000"
+            },
+            "@media only screen and (max-width: 990px)": {
+              ".box": {
+                "margin": "0 0 30px"
+              }
+            }
+          },
+          "_name": "design-block",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"hover3\" group=\"Hover Effect 1\" plugins=\"hover3\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n   <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        \n       <header>©Pratical Plugins</header>\n \n\n       <input type=\"checkbox\" title=\"Show Author Name\" name=\"showtitle3Hover1\" checked>\n         <input type=\"checkbox\" title=\"Show Function\" name=\"showFunction\" checked>\n                  <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n\n<input type=\"color\" title=\"Bg icon\" name=\"hovericon3\" checked value=\"#ffffff\">\n<input type=\"color\" title=\"Bg Title\" name=\"hovericon3-2\" checked value=\"#6592e6\">\n\n         \n<select title=\"Items\" name=\"hover1items3\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n\t\t\t<option value=\"4\">4</option>\n        </select>\n\n        <select title=\"Set Width\" name=\"setwidth\">\n            <option value=\"container\">Default</option>\n            <option value=\"container-fluid\" selected>Fluid</option>\n        </select>\n        \n\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" value=\"../_images/background5.jpg\" title=\"Image\">\n            <input type=\"color\" value=\"#c1c1c1\" title=\"Color\" selected></fieldset>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"3\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"3\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Color\" name=\"overlayColor\" value=\"#797979\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n  </mbr-parameters>  \n    \n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>  \n    \n     \n    <div class mbr-class=\"setwidth\">\n    \n            <div class=\"row  media-container-row\">\n               <div class=\"col-12 col-md-6\" mbr-if=\"hover1items3 > 0\" mbr-class=\"{'col-lg-3': hover1items3 == '4',\n                             'col-lg-4': hover1items3 == '3',\n                             'col-lg-2': hover1items3 == '6',\n                             'my-col': hover1items3=='5'}\">\n                    <div class=\"box\">\n                        <img src=\"@THEME_PATH@/components/_images/people/team3.jpg\">\n                        <div class=\"box-content\">\n                      <h3 class=\"title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showtitle3Hover1\">Hover title</h3>\n                      <span mbr-text class=\"post mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Author function</span>\n                  </div>\n                        <ul class=\"icon\" mbr-if=\"showIcons\">\n                            <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-search\"></span></a></li>\n                      <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-link\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n                <div class=\"col-12 col-md-6\" mbr-if=\"hover1items3 > 1\" mbr-class=\"{'col-lg-3': hover1items3 == '4',\n                             'col-lg-4': hover1items3 == '3',\n                             'col-lg-2': hover1items3 == '6',\n                             'my-col': hover1items3=='5'}\">\n                    <div class=\"box\">\n                   <img src=\"@THEME_PATH@/components/_images/people/team3.jpg\">\n                        <div class=\"box-content\">\n                      <h3 class=\"title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showtitle3Hover1\">Hover title</h3>\n                      <span mbr-text class=\"post mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Author function</span>\n                  </div>\n                        <ul class=\"icon\" mbr-if=\"showIcons\">\n                            <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-search\"></span></a></li>\n                      <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-link\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n               <div class=\"col-12 col-md-6\" mbr-if=\"hover1items3 > 2\" mbr-class=\"{'col-lg-3': hover1items3 == '4',\n                             'col-lg-4': hover1items3 == '3',\n                             'col-lg-2': hover1items3 == '6',\n                             'my-col': hover1items3=='5'}\">\n                    <div class=\"box\">\n                 <img src=\"@THEME_PATH@/components/_images/people/team3.jpg\">\n                       <div class=\"box-content\">\n                      <h3 class=\"title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showtitle3Hover1\">Hover title</h3>\n                      <span mbr-text class=\"post mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Author function</span>\n                  </div>\n                        <ul class=\"icon\" mbr-if=\"showIcons\">\n                            <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-search\"></span></a></li>\n                      <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-link\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n              \n              \n   <div class=\"col-12 col-md-6\" mbr-if=\"hover1items3 > 3\" mbr-class=\"{'col-lg-3': hover1items3 == '4',\n                             'col-lg-4': hover1items3 == '3',\n                             'col-lg-2': hover1items3 == '6',\n                             'my-col': hover1items3=='5'}\">\n                    <div class=\"box\">\n                 <img src=\"@THEME_PATH@/components/_images/people/team3.jpg\">\n                        <div class=\"box-content\">\n                      <h3 class=\"title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showtitle3Hover1\">Hover title</h3>\n                      <span mbr-text class=\"post mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Author function</span>\n                  </div>\n                        <ul class=\"icon\" mbr-if=\"showIcons\">\n                            <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-search\"></span></a></li>\n                      <li><a href=\"#\"><span mbr-icon class=\"mbr-iconfont mbrib-link\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>            \n             \n            </div>\n        </div> \n</section>",
+          "_cid": "3cSau1tytP",
+          "_anchor": "design-block-3cSau1tytP",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".section-text": {
+              "text-align": "left"
+            },
+            ".inner-container": {
+              "margin": "0 auto"
+            },
+            "@media (min-width: 992px)": {
+              ".my-col": {
+                "flex": "0 0 20%",
+                "max-width": "20%",
+                "padding": "15px",
+                "-webkit-flex": "0 0 20%"
+              }
+            },
+            ".box12:before": {
+              "background-color": "@box12color",
+              "content": "''",
+              "height": "100%",
+              "width": "50px",
+              "position": "absolute",
+              "right": "15px",
+              "top": "-100%",
+              "z-index": "1",
+              "transition": "all 0.3s ease"
+            },
+            ".box12 .box12-content": {
+              "background": "@content12color",
+              "color": "#fff",
+              "text-align": "left",
+              "padding": "15px",
+              "transform": "translateY(-50%) scaleX(0)",
+              "transform-origin": "left center",
+              "position": "absolute",
+              "top": "50%",
+              "left": "0",
+              "transition": "all 0.3s ease-in-out"
+            },
+            ".box12 .icon12 li a": {
+              "text-align": "center",
+              "background": "@content12coloricon",
+              "font-size": "20px",
+              "line-height": "35px",
+              "height": "35px",
+              "width": "35px",
+              "margin": "10px 0",
+              "display": "block",
+              "transition": "all 0.3s ease"
+            },
+            ".box12": {
+              "font-family": "'Ubuntu', sans-serif",
+              "overflow": "hidden",
+              "position": "relative",
+              "z-index": "1",
+              "transition": "all 0.3s ease-in-out"
+            },
+            ".box12:hover": {
+              "box-shadow": "0 0 10px rgba(0, 0, 0, 0.4)"
+            },
+            ".box12:hover:before": {
+              "top": "0"
+            },
+            ".box12 img": {
+              "width": "100%",
+              "height": "auto",
+              "transition": "all 0.3s ease"
+            },
+            ".box12:hover img": {
+              "filter": "hue-rotate(90deg)"
+            },
+            ".box12:hover .box12-content": {
+              "transform": "translateY(-50%) scaleX(1)"
+            },
+            ".box12 .title12": {
+              "font-style": "italic",
+              "letter-spacing": "1px",
+              "text-transform": "uppercase",
+              "margin": "0 0 4px"
+            },
+            ".box12 .post12": {
+              "margin": "0 0 5px",
+              "display": "block"
+            },
+            ".box12 .icon12": {
+              "padding": "0",
+              "margin": "0",
+              "list-style": "none",
+              "transform": "translateY(-50%)",
+              "position": "absolute",
+              "top": "50%",
+              "right": "23px",
+              "z-index": "1"
+            },
+            ".box12 .icon12 li": {
+              "transform": "scale(0)"
+            },
+            ".box12:hover .icon12 li": {
+              "transform": "scale(1)",
+              "transition": "all 0.3s ease 0.1s"
+            },
+            ".box12 .icon12 li a:hover": {
+              "color": "#111",
+              "background-color": "#e7e7e7"
+            },
+            "@media only screen and (max-width: 990px)": {
+              ".box12": {
+                "margin": "0 0 30px"
+              }
+            }
+          },
+          "_name": "design-block",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"hover12\" group=\"Hover Effect 1\" plugins=\"hover12\" data-bg-video=\"{{bg.type == 'video' &amp;&amp; bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n   <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        \n       <header>©Pratical Plugins</header>\n       <input type=\"checkbox\" title=\"Show Author Name\" name=\"showtitleHover1\" checked=\"\">\n       <input type=\"checkbox\" title=\"Show Function\" name=\"showFunction\" checked=\"\">\n      <input type=\"checkbox\" title=\"Show Icon\" name=\"showicon12Hover1\" checked=\"\">\n     <input type=\"color\" title=\"Bg Content\" name=\"content12color\" checked=\"\" value=\"#232323\">\n   <input type=\"color\" title=\"Bg Icon\" name=\"box12color\" checked=\"\" value=\"#ffffff\">\n      <input type=\"color\" title=\"Icon\" name=\"content12coloricon\" checked=\"\" value=\"#000000\">\n\n   <select title=\"Items\" name=\"hover1items12\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n\t\t\t<option value=\"4\" selected=\"\">4</option>\n        </select>    \n  <select title=\"Set Width\" name=\"setwidth\">\n      <option value=\"container\">Default</option>\n            <option value=\"container-fluid\" selected=\"\">Fluid</option>\n        </select>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" value=\"../_images/background8.jpg\" title=\"Image\">\n            <input type=\"color\" value=\"#353535\" title=\"Color\" selected=\"\"></fieldset>\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n        <input type=\"color\" title=\"Color\" name=\"overlayColor\" value=\"#797979\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n        <!-- End block parameters -->\n  </mbr-parameters>  \n    \n  <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>  \n   \n     <div class=\"\" mbr-class=\"setwidth\">\n           \n            <div class=\"row media-container-row\">\n               <div class=\" col-12 col-md-6\" mbr-if=\"hover1items12 > 0\" mbr-class=\"{'col-lg-3': hover1items12 == '4',\n                             'col-lg-4': hover1items12 == '3',\n                             'col-lg-2': hover1items12 == '6',\n                             'my-col': hover1items12=='5'}\">\n                    <div class=\"box12\">\n                        <img src=\"@THEME_PATH@/components/_images/people/team1.jpg\" alt=\"Image\">\n                       <div class=\"box12-content\">\n             <h3 class=\"title12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showtitleHover1\">Author name</h3>\n            <span mbr-text=\"\" class=\"post12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Function name</span>\n                            \n                        </div>\n                        <ul class=\"icon12\" mbr-if=\"showicon12Hover1\">\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-search\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-link\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n               <div class=\" col-12 col-md-6\" mbr-if=\"hover1items12 > 1\" mbr-class=\"{'col-lg-3': hover1items12 == '4',\n                             'col-lg-4': hover1items12 == '3',\n                             'col-lg-2': hover1items12 == '6',\n                             'my-col': hover1items12=='5'}\">\n                    <div class=\"box12\">\n                      <img src=\"@THEME_PATH@/components/_images/people/team2.jpg\" alt=\"Image\">\n                      <div class=\"box12-content\">\n             <h3 class=\"title12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showtitleHover1\">Author name</h3>\n            <span mbr-text=\"\" class=\"post12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Function name</span>\n                            \n                        </div>\n                       <ul class=\"icon12\" mbr-if=\"showicon12Hover1\">\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-search\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-link\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n             <div class=\" col-12 col-md-6\" mbr-if=\"hover1items12 > 2\" mbr-class=\"{'col-lg-3': hover1items12 == '4',\n                             'col-lg-4': hover1items12 == '3',\n                             'col-lg-2': hover1items12 == '6',\n                             'my-col': hover1items12=='5'}\">\n                    <div class=\"box12\">\n                        <img src=\"@THEME_PATH@/components/_images/people/team3.jpg\" alt=\"Image\">\n                       <div class=\"box12-content\">\n             <h3 class=\"title12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showtitleHover1\">Author name</h3>\n            <span mbr-text=\"\" class=\"post12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Function name</span>\n                            \n                        </div>\n                       <ul class=\"icon12\" mbr-if=\"showicon12Hover1\">\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-search\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-link\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>\n          \n   <div class=\" col-12 col-md-6\" mbr-if=\"hover1items12 > 3\" mbr-class=\"{'col-lg-3': hover1items12 == '4',\n                             'col-lg-4': hover1items12 == '3',\n                             'col-lg-2': hover1items12 == '6',\n                             'my-col': hover1items12=='5'}\">\n                    <div class=\"box12\">\n                        <img src=\"@THEME_PATH@/components/_images/people/team4.jpg\" alt=\"Image\">\n                       <div class=\"box12-content\">\n             <h3 class=\"title12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showtitleHover1\">Author name</h3>\n            <span mbr-text=\"\" class=\"post12 mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showFunction\">Function name</span>\n                            \n                        </div>\n                        <ul class=\"icon12\" mbr-if=\"showicon12Hover1\">\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-search\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                            <li><a href=\"#\"><span mbr-icon=\"\" class=\"mbr-iconfont mbrib-link\" style=\"color: rgb(255, 255, 255); fill: rgb(255, 255, 255);\"></span></a></li>\n                        </ul>\n                    </div>\n                </div>           \n          \n            </div>\n        </div>\n \n</section>",
+          "_cid": "TjIzY6gnz4",
+          "_anchor": "design-block-TjIzY6gnz4",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
         }
       ]
     }
